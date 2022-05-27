@@ -81,16 +81,15 @@ func (b *box) SumArea() float64 {
 func (b *box) RemoveAllCircles() error {
 	//panic("implement me")
 	var cnt int
-	var list []Shape
 	for i, v := range b.shapes {
 		_, ok := v.(Circle)
 		if ok {
 			cnt++
 		} else {
-			list = append(list, b.shapes[i])
+			copy(b.shapes[i:], b.shapes[i+1:])
+			b.shapes = b.shapes[:len(b.shapes)-1]
 		}
 	}
-	b.shapes = append(b.shapes, list...)
 	if cnt == 0 {
 		return errors.New("circles are not exist in the list")
 	} else {
