@@ -22,7 +22,7 @@ func (b *box) AddShape(shape Shape) error {
 		b.shapes = append(b.shapes, shape)
 		return nil
 	}
-	panic("out of the shapesCapacity range")
+	return errors.New("out of the shapesCapacity range")
 }
 
 // GetByIndex allows getting shape by index
