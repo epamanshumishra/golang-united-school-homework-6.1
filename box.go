@@ -82,7 +82,7 @@ func (b *box) RemoveAllCircles() error {
 	//panic("implement me")
 	result := make([]Shape, 0, len(b.shapes))
 	for _, v := range b.shapes {
-		_, ok := v.(Circle)
+		_, ok := v.(*Circle)
 		if !ok {
 			result = append(result, v)
 		}
