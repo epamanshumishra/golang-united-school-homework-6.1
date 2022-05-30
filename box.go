@@ -82,7 +82,7 @@ func (b *box) RemoveAllCircles() error {
 	//panic("implement me")
 	var cnt int
 	for i, v := range b.shapes {
-		_, ok := v.(Circle)
+		_, ok := v.(*Circle)
 		if ok {
 			cnt++
 		} else {
