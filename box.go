@@ -92,6 +92,6 @@ func (b *box) RemoveAllCircles() error {
 		return errors.New("circles are not exist in the list")
 	}
 
-	b.shapes = result
+	copy(b.shapes, result)
 	return nil
 }
